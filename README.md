@@ -1,16 +1,34 @@
-# marvel
+## Marvel
 
-A new Flutter project.
+Um projeto feito em Flutter que consome a [API da Marvel](https://developer.marvel.com/).
 
-## Getting Started
+## Status
 
-This project is a starting point for a Flutter application.
+Esse projeto ainda se encontra em desenvolvimento.
 
-A few resources to get you started if this is your first Flutter project:
+## Intruções de Instalação
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**Download**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Acesse via terminal o local dos seus projetos e faça o download do repositório.
+
+Com ssh
+
+```bash
+git@github.com:rodrigogaleano/marvel_flutter.git
+```
+
+Com https
+
+```bash
+https://github.com/rodrigogaleano/marvel_flutter.git
+```
+
+**Instalação das dependências**
+
+Instalação das dependências do projeto.
+
+```bash
+$ cd marvel_flutter
+$ flutter pub get
+```
