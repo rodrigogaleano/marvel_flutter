@@ -33,10 +33,11 @@ class HomeViewModel extends HomeProtocol {
     _setLoading(true);
     var successfulResponses = 0;
 
-    for (final character in PopularCharacters.values) {
+    for (final characterEnum in PopularCharacters.values) {
       getCharactersUseCase.execute(
-        characterId: character.id,
+        characterId: characterEnum.id,
         success: (character) {
+          character.imagePath = characterEnum.imagePath;
           _characters.add(character);
           successfulResponses++;
           if (successfulResponses == PopularCharacters.values.length) {

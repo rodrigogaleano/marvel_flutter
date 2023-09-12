@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 abstract class CharacterPageViewModelProtocol {
   String get name;
+  String get imagePath;
 }
 
 class CharacterPageView extends StatelessWidget {
@@ -15,6 +16,7 @@ class CharacterPageView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(viewModel.name),
+        Image.asset(viewModel.imagePath, height: 300),
       ],
     );
   }

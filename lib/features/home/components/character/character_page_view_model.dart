@@ -8,4 +8,7 @@ class CharacterPageViewModel extends CharacterPageViewModelProtocol {
 
   @override
   String get name => character.name;
+
+  @override
+  String get imagePath => character.imagePath;
 }

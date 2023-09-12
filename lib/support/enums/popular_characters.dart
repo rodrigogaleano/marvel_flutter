@@ -18,8 +18,7 @@ enum PopularCharacters {
       case PopularCharacters.ironMan:
         return AppAssets.ironMan;
       case PopularCharacters.spiderMan:
-        // TODO: Colocar a imagem correta
-        return AppAssets.ironMan;
+        return AppAssets.spiderMan;
     }
   }
 }
