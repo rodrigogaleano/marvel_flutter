@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/localization.dart';
 
 import 'router/mobile_router.dart';
+import 'support/utils/localize.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: MobileRouter.routes,
       initialRoute: MobileRouter.initialRoute,
+      supportedLocales: Localization.supportedLocales,
+      localizationsDelegates: Localization.localizationsDelegates,
+      onGenerateTitle: (context) => Localize.instance.of(context).appTitle,
     );
   }
 }
