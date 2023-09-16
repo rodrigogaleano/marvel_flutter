@@ -1,4 +1,6 @@
-import '../style/app_assets.dart';
+import 'dart:ui';
+
+import '../style/app_colors.dart';
 
 enum PopularCharacters {
   ironMan,
@@ -16,9 +18,18 @@ enum PopularCharacters {
   String get imagePath {
     switch (this) {
       case PopularCharacters.ironMan:
-        return AppAssets.ironMan;
+        return 'https://placehold.co/256.png';
       case PopularCharacters.spiderMan:
-        return AppAssets.spiderMan;
+        return 'https://placehold.co/256.png';
+    }
+  }
+
+  Color get backgroundColor {
+    switch (this) {
+      case PopularCharacters.ironMan:
+        return AppColors.ironMan;
+      case PopularCharacters.spiderMan:
+        return AppColors.spiderMan;
     }
   }
 }

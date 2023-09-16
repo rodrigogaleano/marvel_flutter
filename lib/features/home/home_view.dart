@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../support/style/app_colors.dart';
+import '../../support/style/app_fonts.dart';
 import 'components/character/character_page_view.dart';
 
 abstract class HomeViewProtocol with ChangeNotifier {
@@ -21,7 +23,17 @@ class HomeView extends StatelessWidget {
         child: ListenableBuilder(
           listenable: viewModel,
           builder: (_, context) {
-            return _bodyWidget;
+            return CustomScrollView(
+              slivers: [
+                SliverAppBar(
+                  title: Text(
+                    'avengers',
+                    style: AppFonts.robotoNormal(20, AppColors.black),
+                  ),
+                ),
+                _bodyWidget,
+              ],
+            );
           },
         ),
       ),
@@ -30,17 +42,22 @@ class HomeView extends StatelessWidget {
 
   Widget get _bodyWidget {
     if (viewModel.isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return const SliverFillRemaining(child: Center(child: CircularProgressIndicator()));
     }
 
-    // TODO: Implementar placeholder de erro
+    if (viewModel.errorMessage.isNotEmpty) {
+      return SliverFillRemaining(child: Center(child: Text(viewModel.errorMessage)));
+    }
 
-    return PageView.builder(
-      itemCount: viewModel.characterPageViewModels.length,
-      itemBuilder: (context, index) {
-        final characterViewModel = viewModel.characterPageViewModels[index];
-        return CharacterPageView(viewModel: characterViewModel);
-      },
+    return SliverFillRemaining(
+      child: PageView.builder(
+        itemCount: viewModel.characterPageViewModels.length,
+        itemBuilder: (context, index) {
+          final characterViewModel = viewModel.characterPageViewModels[index];
+
+          return CharacterPageView(viewModel: characterViewModel);
+        },
+      ),
     );
   }
 }

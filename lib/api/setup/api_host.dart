@@ -1,7 +1,3 @@
-import 'dart:convert';
-
-import 'package:crypto/crypto.dart';
-
 class ApiHost {
   ApiHost._();
 
@@ -12,21 +8,26 @@ class ApiHost {
   static String get apiVersion => '/v1';
 
   static String get timestamp {
-    final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
-    return timestamp;
+    // TODO: Verify the API auth issues
+    // final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
+    // return timestamp;
+    return '1694890946379';
   }
 
   static String get apiKey {
     return '89c734933d38e072ff1d8e8e9dbcc7d4';
   }
 
-  static String get privateKey {
-    return '8143653f6b2e2b721ca01dc3f523b1a2680f310f';
-  }
+  // TODO: Verify the API auth issues
+  // static String get _privateKey {
+  //   return '8143653f6b2e2b721ca01dc3f523b1a2680f310f';
+  // }
 
   static String get hash {
-    final bytes = utf8.encode(timestamp + privateKey + apiKey);
-    final digest = md5.convert(bytes);
-    return digest.toString();
+    // TODO: Verify the API auth issues
+    // final bytes = utf8.encode(timestamp + _privateKey + apiKey);
+    // final digest = md5.convert(bytes);
+    // return digest.toString();
+    return '8bc4b19e412c1df78cbe21e70d95cdc4';
   }
 }

@@ -38,6 +38,7 @@ class HomeViewModel extends HomeProtocol {
         characterId: characterEnum.id,
         success: (character) {
           character.imagePath = characterEnum.imagePath;
+          character.backgroundColor = characterEnum.backgroundColor;
           _characters.add(character);
           successfulResponses++;
           if (successfulResponses == PopularCharacters.values.length) {
