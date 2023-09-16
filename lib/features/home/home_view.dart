@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../support/style/app_colors.dart';
 import '../../support/style/app_fonts.dart';
+import '../../support/utils/localize.dart';
 import 'components/character/character_page_view.dart';
 
 abstract class HomeViewProtocol with ChangeNotifier {
@@ -18,6 +19,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = Localize.instance.l10n;
+
     return Scaffold(
       body: SafeArea(
         child: ListenableBuilder(
@@ -26,7 +29,7 @@ class HomeView extends StatelessWidget {
             return Column(
               children: [
                 Text(
-                  'avengers',
+                  l10n.appTitle.toLowerCase(),
                   style: AppFonts.robotoNormal(20, AppColors.black),
                 ),
                 _bodyWidget,

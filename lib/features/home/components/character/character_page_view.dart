@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../support/style/app_colors.dart';
 import '../../../../support/style/app_fonts.dart';
+import '../../../../support/utils/localize.dart';
 
 abstract class CharacterPageViewModelProtocol {
   String get name;
@@ -16,6 +17,8 @@ class CharacterPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = Localize.instance.l10n;
+
     return LayoutBuilder(
       builder: (_, constraints) {
         return Stack(
@@ -66,7 +69,7 @@ class CharacterPageView extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'know more',
+                          l10n.homeKnowMoreLabel,
                           style: AppFonts.robotoNormal(18, AppColors.white),
                         ),
                         const Icon(
