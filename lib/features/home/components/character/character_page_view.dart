@@ -22,7 +22,7 @@ class CharacterPageView extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Positioned.fill(
-              top: constraints.maxHeight * 0.275,
+              top: constraints.maxHeight * 0.25,
               child: Container(
                 decoration: BoxDecoration(
                   color: viewModel.backgroundColor,
@@ -48,34 +48,30 @@ class CharacterPageView extends StatelessWidget {
               ),
             ),
             Positioned.fill(
-              top: constraints.maxHeight * 0.125,
+              top: constraints.maxHeight * 0.1,
               child: Padding(
-                padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
+                padding: const EdgeInsets.only(left: 24, right: 24, bottom: 40),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Center(child: Image.network(viewModel.imagePath)),
-                    const SizedBox(height: 24),
-                    SizedBox(
-                      width: constraints.maxWidth * 0.75,
-                      child: Text(
-                        viewModel.name,
-                        style: AppFonts.robotoBold(64, AppColors.white),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
+                    Image.asset(viewModel.imagePath),
                     const SizedBox(height: 20),
+                    Text(
+                      viewModel.name,
+                      style: AppFonts.robotoBold(56, AppColors.white),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     const Spacer(),
                     Row(
                       children: [
                         Text(
                           'know more',
-                          style: AppFonts.robotoNormal(18, AppColors.yellow),
+                          style: AppFonts.robotoNormal(18, AppColors.white),
                         ),
                         const Icon(
                           Icons.arrow_forward,
-                          color: AppColors.yellow,
+                          color: AppColors.white,
                         )
                       ],
                     )

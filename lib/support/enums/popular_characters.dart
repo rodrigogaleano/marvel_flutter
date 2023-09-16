@@ -1,10 +1,13 @@
 import 'dart:ui';
 
+import '../style/app_assets.dart';
 import '../style/app_colors.dart';
 
 enum PopularCharacters {
   ironMan,
-  spiderMan;
+  spiderMan,
+  hulk,
+  captainAmerica;
 
   int get id {
     switch (this) {
@@ -12,15 +15,23 @@ enum PopularCharacters {
         return 1009368;
       case PopularCharacters.spiderMan:
         return 1009610;
+      case PopularCharacters.hulk:
+        return 1009351;
+      case PopularCharacters.captainAmerica:
+        return 1009220;
     }
   }
 
   String get imagePath {
     switch (this) {
       case PopularCharacters.ironMan:
-        return 'https://placehold.co/256.png';
+        return AppAssets.ironMan;
       case PopularCharacters.spiderMan:
-        return 'https://placehold.co/256.png';
+        return AppAssets.spiderMan;
+      case PopularCharacters.hulk:
+        return AppAssets.hulk;
+      case PopularCharacters.captainAmerica:
+        return AppAssets.captainAmerica;
     }
   }
 
@@ -30,6 +41,10 @@ enum PopularCharacters {
         return AppColors.ironMan;
       case PopularCharacters.spiderMan:
         return AppColors.spiderMan;
+      case PopularCharacters.hulk:
+        return AppColors.hulk;
+      case PopularCharacters.captainAmerica:
+        return AppColors.captainAmerica;
     }
   }
 }

@@ -23,13 +23,11 @@ class HomeView extends StatelessWidget {
         child: ListenableBuilder(
           listenable: viewModel,
           builder: (_, context) {
-            return CustomScrollView(
-              slivers: [
-                SliverAppBar(
-                  title: Text(
-                    'avengers',
-                    style: AppFonts.robotoNormal(20, AppColors.black),
-                  ),
+            return Column(
+              children: [
+                Text(
+                  'avengers',
+                  style: AppFonts.robotoNormal(20, AppColors.black),
                 ),
                 _bodyWidget,
               ],
@@ -42,14 +40,22 @@ class HomeView extends StatelessWidget {
 
   Widget get _bodyWidget {
     if (viewModel.isLoading) {
-      return const SliverFillRemaining(child: Center(child: CircularProgressIndicator()));
+      return const Expanded(
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
     }
 
     if (viewModel.errorMessage.isNotEmpty) {
-      return SliverFillRemaining(child: Center(child: Text(viewModel.errorMessage)));
+      return Expanded(
+        child: Center(
+          child: Text(viewModel.errorMessage),
+        ),
+      );
     }
 
-    return SliverFillRemaining(
+    return Expanded(
       child: PageView.builder(
         itemCount: viewModel.characterPageViewModels.length,
         itemBuilder: (context, index) {
