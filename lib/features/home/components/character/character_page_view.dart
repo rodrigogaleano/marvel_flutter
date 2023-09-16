@@ -30,6 +30,20 @@ class CharacterPageView extends StatelessWidget {
                     topLeft: Radius.circular(16),
                     topRight: Radius.circular(16),
                   ),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: AppColors.lightGrey,
+                      offset: Offset(0, -80),
+                      blurRadius: .5,
+                      spreadRadius: -30,
+                    ),
+                    BoxShadow(
+                      color: AppColors.lightGrey2,
+                      offset: Offset(0, -40),
+                      blurRadius: .5,
+                      spreadRadius: -15,
+                    ),
+                  ],
                 ),
               ),
             ),
