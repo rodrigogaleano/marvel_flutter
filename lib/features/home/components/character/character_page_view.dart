@@ -8,6 +8,8 @@ abstract class CharacterPageViewModelProtocol {
   String get name;
   String get imagePath;
   Color get backgroundColor;
+
+  void didTapCharacter();
 }
 
 class CharacterPageView extends StatelessWidget {
@@ -50,35 +52,38 @@ class CharacterPageView extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned.fill(
-              top: constraints.maxHeight * 0.1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 24, right: 24, bottom: 40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(viewModel.imagePath),
-                    const SizedBox(height: 20),
-                    Text(
-                      viewModel.name,
-                      style: AppFonts.robotoBold(56, AppColors.white),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        Text(
-                          l10n.homeKnowMoreLabel,
-                          style: AppFonts.robotoNormal(18, AppColors.white),
-                        ),
-                        const Icon(
-                          Icons.arrow_forward,
-                          color: AppColors.white,
-                        )
-                      ],
-                    )
-                  ],
+            InkWell(
+              onTap: viewModel.didTapCharacter,
+              child: Positioned.fill(
+                top: constraints.maxHeight * 0.1,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 24, right: 24, bottom: 40),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(viewModel.imagePath),
+                      const SizedBox(height: 20),
+                      Text(
+                        viewModel.name,
+                        style: AppFonts.robotoBold(56, AppColors.white),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          Text(
+                            l10n.homeKnowMoreLabel,
+                            style: AppFonts.robotoNormal(18, AppColors.white),
+                          ),
+                          const Icon(
+                            Icons.arrow_forward,
+                            color: AppColors.white,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

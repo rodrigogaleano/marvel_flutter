@@ -5,7 +5,7 @@ import 'home_view_controller.dart';
 import 'models/character.dart';
 import 'use_cases/get_character_use_case.dart';
 
-class HomeViewModel extends HomeProtocol {
+class HomeViewModel extends HomeProtocol implements CharacterPageDelegate {
   bool _isLoading = false;
   String _errorMessage = '';
 
@@ -24,7 +24,7 @@ class HomeViewModel extends HomeProtocol {
   @override
   List<CharacterPageViewModelProtocol> get characterPageViewModels {
     return _characters.map((character) {
-      return CharacterPageViewModel(character: character);
+      return CharacterPageViewModel(character: character, delegate: this);
     }).toList();
   }
 
@@ -57,5 +57,10 @@ class HomeViewModel extends HomeProtocol {
   void _setLoading(bool loadingStatus) {
     _isLoading = loadingStatus;
     notifyListeners();
+  }
+
+  @override
+  void didTapCharacter(Character character) {
+    onTapCharacter?.call(character);
   }
 }
