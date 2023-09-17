@@ -34,7 +34,7 @@ class _HomeViewControllerState extends State<HomeViewController> {
 
   void _bind() {
     widget.viewModel.onTapCharacter = (character) {
-      Navigator.pushNamed(context, DetailsFactory.detailsRoute);
+      Navigator.pushNamed(context, DetailsFactory.detailsRoute, arguments: character);
     };
   }
 }
