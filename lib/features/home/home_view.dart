@@ -28,9 +28,12 @@ class HomeView extends StatelessWidget {
           builder: (_, context) {
             return Column(
               children: [
-                Text(
-                  l10n.appTitle.toLowerCase(),
-                  style: AppFonts.robotoNormal(20, AppColors.black),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Text(
+                    l10n.appTitle.toLowerCase(),
+                    style: AppFonts.robotoNormal(20, AppColors.black).copyWith(letterSpacing: 1.5),
+                  ),
                 ),
                 _bodyWidget,
               ],
